@@ -29,3 +29,14 @@ type FruitsPercent float64
 type FibreGram float64
 
 type ProteinGram float64
+
+type NutritionalData struct {
+	Energy              EnergyKJ
+	Sugars              SugarGram
+	SaturatedFattyAcids SaturatedFattyAcids
+	Sodium              SodiumMilligram
+	Fruits              FruitsPercent
+	Fibre               FibreGram
+	Protein             ProteinGram
+	isWater             bool
+}
