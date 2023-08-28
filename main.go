@@ -7,7 +7,7 @@ func main() {
 		Energy:              EnergyFromKcal(),
 		Sugars:              SugarGram(),
 		SaturatedFattyAcids: SaturatedFattyAcids(),
-		Sodium:              SodiumMilligram(),
+		Sodium:              SodiumFromSalt(),
 		Fruits:              FruitsPercent(),
 		Fibre:               FibreGram(),
 		Protein:             ProteinGram(),

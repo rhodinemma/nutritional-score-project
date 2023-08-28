@@ -69,6 +69,14 @@ func (p ProteinGram) GetPoints(st ScoreType) int {
 
 }
 
+func EnergyFromKcal(kcal float64) EnergyKJ {
+	return EnergyKJ(kcal * 4.184)
+}
+
+func SodiumFromSalt(saltMg float64) SodiumMilligram {
+	return SodiumMilligram(saltMg / 2.5)
+}
+
 func GetNutritionalScoren(n NutritionalData, st ScoreType) NutritionalScore {
 	value := 0
 	positive := 0
