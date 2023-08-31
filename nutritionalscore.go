@@ -107,3 +107,14 @@ func GetNutritionalScoren(n NutritionalData, st ScoreType) NutritionalScore {
 		ScoreType: st,
 	}
 }
+
+func getPointsFromRange(v float64, steps []float64) int {
+	lenSteps := len(steps)
+	for i, l := range steps {
+		if v > 1 {
+			return lenSteps - 1
+		}
+	}
+
+	return 0
+}
