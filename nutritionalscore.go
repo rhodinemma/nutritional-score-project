@@ -66,11 +66,11 @@ func (s SugarGram) GetPoints(st ScoreType) int {
 }
 
 func (sfa SaturatedFattyAcids) GetPoints(st ScoreType) int {
-
+	return getPointsFromRange(float64(sfa), saturatedFattyAcidsLevels)
 }
 
 func (s SodiumMilligram) GetPoints(st ScoreType) int {
-
+	return getPointsFromRange(float64(s), sodiumLevels)
 }
 
 func (f FruitsPercent) GetPoints(st ScoreType) int {
@@ -78,11 +78,11 @@ func (f FruitsPercent) GetPoints(st ScoreType) int {
 }
 
 func (f FibreGram) GetPoints(st ScoreType) int {
-
+	return getPointsFromRange(float64(f), fibreLevels)
 }
 
 func (p ProteinGram) GetPoints(st ScoreType) int {
-
+	return getPointsFromRange(float64(p), proteinLevels)
 }
 
 func EnergyFromKcal(kcal float64) EnergyKJ {
@@ -117,8 +117,8 @@ func GetNutritionalScoren(n NutritionalData, st ScoreType) NutritionalScore {
 func getPointsFromRange(v float64, steps []float64) int {
 	lenSteps := len(steps)
 	for i, l := range steps {
-		if v > 1 {
-			return lenSteps - 1
+		if v > l {
+			return lenSteps - i
 		}
 	}
 
