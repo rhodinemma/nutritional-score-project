@@ -123,6 +123,16 @@ func GetNutritionalScore(n NutritionalData, st ScoreType) NutritionalScore {
 
 		negative = n.Energy.GetPoints(st) + n.Sugars.GetPoints(st) + n.SaturatedFattyAcids.GetPoints(st) + n.Sodium.GetPoints(st)
 		positive = fruitPoints + fibrePoints + n.Protein.GetPoints(st)
+
+		if st == Cheese {
+			value = negative - positive
+		} else {
+			if negative >= 11 && fruitPoints < 5 {
+				value = negative - positive - fruitPoints
+			} else {
+				value = negative - positive
+			}
+		}
 	}
 
 	return NutritionalScore{
